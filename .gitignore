@@ -57,3 +57,5 @@ testem.log
 .vscode/launch.json
 
 .cache
+.env
+bun.lockb

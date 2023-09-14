@@ -1,10 +1,10 @@
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
-import { ActionArgs, json, type V2_MetaFunction } from "@remix-run/node";
+import { type ActionArgs, json, type V2_MetaFunction, type LoaderArgs } from "@remix-run/node";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
-import { Form, useActionData } from "@remix-run/react";
+import { Form, useActionData, useLoaderData } from "@remix-run/react";
 import IpTile from "~/components/IpTile";
 import ClientLoader  from "~/components/ClientLoader";
 import { Map } from "~/components/Map.client";
+import { getClientIPAddress } from "remix-utils/build/server/get-client-ip-address";
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -13,20 +13,28 @@ export const meta: V2_MetaFunction = () => {
   ];
 };
 
+export const loader = async ({ request }:LoaderArgs) => {
+  const clientIpAddress = getClientIPAddress(request);
+    // Get IP address data from ipify
+    const ipRes = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.IPIFY_API_KEY}&$ipAddress=${clientIpAddress}`);
+    const ipData = await ipRes.json();
+    return json(ipData);
+}
+
 export const action = async ({request}: ActionArgs) => {
   // Get search data
   const formData = await request.formData();
   const search = formData.get('search');
   const isIp = search?.toString()?.match(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/);
   // Get IP address data from ipify
-  const ipRes = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_GadjdqhaKdbFGPb8EhJGNO7VYNlWY&${(isIp ? 'ipAddress' : 'domain')}=${search}`);
+  const ipRes = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.IPIFY_API_KEY}&${(isIp ? 'ipAddress' : 'domain')}=${search}`);
   const ipData = await ipRes.json();
   return json(ipData);
 }
 
 export default function Index() {
   const data = useActionData<typeof action>();
-
+  const initialLoad = useLoaderData<typeof loader>();
   return (
     <main className="h-screen w-full relative">
 
@@ -42,7 +50,8 @@ export default function Index() {
           }
         >
           {() => data ? (<Map height={'100%'} position={[data.location.lat,data.location.lng]} />) :
-           (<Map height={'100%'} position={[51.505, -0.09]} />)}
+                initialLoad ? (<Map height={'100%'} position={[initialLoad.location.lat,initialLoad.location.lng]} />) :
+                        (<Map height={'100%'} position={[51.505, -0.09]} />)}
         </ClientLoader>
       </div>
       <div className="flex flex-col z-[999] w-10/12 mx-auto">
@@ -62,7 +71,8 @@ export default function Index() {
           </button>
         </Form>
         {data ? (<IpTile ip={data.ip} location={data.location.region} timezone={data.location.timezone} isp={data.isp} />):
-        (<IpTile ip={'-'} location={'-'} timezone={'-'} isp={'-'} />)}
+        initialLoad ? (<IpTile ip={initialLoad.ip} location={initialLoad.location.region} timezone={initialLoad.location.timezone} isp={initialLoad.isp} />):
+                (<IpTile ip={'-'} location={'-'} timezone={'-'} isp={'-'} />)}
       </div>
     </main>
   );

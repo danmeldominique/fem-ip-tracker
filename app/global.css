@@ -10,7 +10,7 @@
     }
 
     .data-item {
-        @apply text-center sm:text-left pl-4;
+        @apply text-center sm:text-left px-4;
     }
 
     .data-item .data-item-title {
