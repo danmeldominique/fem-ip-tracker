@@ -5,7 +5,6 @@
     "build": "NODE_ENV=production remix build",
     "dev": "remix dev",
     "start": "NODE_ENV=production remix-serve build",
-    "install": "NODE_ENV=production remix install",
     "typecheck": "tsc"
   },
   "dependencies": {

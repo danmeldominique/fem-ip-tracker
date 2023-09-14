@@ -59,3 +59,4 @@ testem.log
 .cache
 .env
 bun.lockb
+package-lock.json
