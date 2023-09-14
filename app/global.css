@@ -10,14 +10,14 @@
     }
 
     .data-item {
-        @apply text-center;
+        @apply text-center sm:text-left pl-4;
     }
 
     .data-item .data-item-title {
-        @apply text-[0.6rem] tracking-widest text-gray-500;
+        @apply text-[0.6rem] sm:font-semibold tracking-widest text-gray-500;
     }
 
     .data-item .data-item-value {
-        @apply text-[1.2rem] font-medium text-gray-800;
+        @apply text-[1.2rem] sm:text-[1rem] font-medium text-gray-800;
     }
 }

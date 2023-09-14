@@ -47,11 +47,11 @@ export default function Index() {
       </div>
       <div className="flex flex-col z-[999] w-10/12 mx-auto">
         <h1 className="text-3xl text-white text-center mt-6">IP Address Tracker</h1>
-        <Form className="flex flex-row my-6 shadow-md" method='post' reloadDocument>
+        <Form className="flex flex-row my-6 shadow-md sm:w-[25rem] sm:mx-auto" method='post' reloadDocument>
           <input
             type="text"
             placeholder="Search for any IP address or domain"
-            className="w-full h-12 px-4 py-2 rounded-l-lg text-black"
+            className="w-full h-12 px-4 py-2 rounded-l-lg text-black placeholder:text-sm sm:placeholder:text-base"
             name="search"
           />
           <button
