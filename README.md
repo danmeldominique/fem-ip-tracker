@@ -1,58 +1,70 @@
-# Welcome to Remix!
+# Frontend Mentor - IP address tracker solution
 
-- [Remix Docs](https://remix.run/docs)
+This is a solution to the [IP address tracker challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Development
+## Table of contents
 
-From your terminal:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-```sh
-npm run dev
-```
+## Overview
 
-This starts your app in development mode, rebuilding assets on file changes.
+### The challenge
 
-## Deployment
+Users should be able to:
 
-First, build your app for production:
+- View the optimal layout for each page depending on their device's screen size
+- See hover states for all interactive elements on the page
+- See their own IP address on the map on the initial page load
+- Search for any IP addresses or domains and see the key information and location
 
-```sh
-npm run build
-```
+### Screenshot
 
-Then run the app in production mode:
+![Desktop](./docs/Desktop.png)
+![Mobile](./docs/Mobile.png)
 
-```sh
-npm start
-```
 
-Now you'll need to pick a host to deploy it to.
+### Links
 
-### DIY
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
+## My process
 
-Make sure to deploy the output of `remix build`
+### Built with
 
-- `build/`
-- `public/build/`
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Remix](https://remix.run/) - React framework
+- [TailwindCSS](https://tailwindcss.com/) - For styles
+- [IP Geolocation API by IPify](https://geo.ipify.org/) - For IP Geolocation
+- [Leaflet](https://leafletjs.com/) - For map
 
-### Using a Template
+### What I learned
 
-When you ran `npx create-remix@latest` there were a few choices for hosting. You can run that again to create a new project, then copy over relevant code/assets from your current app to the new project that's pre-configured for your target server.
+I used several new technologies in this project to get some experience with them. I've had a lot of fun learning Remix and its differences from NextJS. 
 
-Most importantly, this means everything in the `app/` directory, but if you've further customized your current application outside of there it may also include:
+My main takeaway from this project was learning how to stich data together from multiple API sources. I used the IP Geolocation API by IPify to get the IP address and location data. I then used the Leaflet library to display the map. I had to use the IP Geolocation API to get the latitude and longitude of the IP address and then pass that to Leaflet to display the map.
 
-- Any assets you've added/updated in `public/`
-- Any updated versions of root files such as `.eslintrc.js`, etc.
+This was also the first time using Bun 1.0 and loving it so far. Defnitely faster than npm and yarn.
 
-```sh
-cd ..
-# create a new project, and pick a pre-configured host
-npx create-remix@latest
-cd my-new-remix-app
-# remove the new project's app (not the old one!)
-rm -rf app
-# copy your app over
-cp -R ../my-old-remix-app/app app
-```
+### Useful resources
+
+- [CodeSandbox - remix-run/examples:leaflet](https://codesandbox.io/p/sandbox/github/remix-run/examples/tree/main/leaflet) - This really helped me out in understanding how to use Leaflet with Remix which is a SSR framework only. I really liked this pattern and will use it going forward.
+
+
+## Author
+
+- Frontend Mentor - [@danmeldominique](https://www.frontendmentor.io/profile/danmeldominique)
+- Twitter - [danmeldominique](https://github.com/danmeldominique)
