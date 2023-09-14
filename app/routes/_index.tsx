@@ -60,12 +60,12 @@ export default function Index() {
           <input
             type="text"
             placeholder="Search for any IP address or domain"
-            className="w-full h-12 px-4 py-2 rounded-l-lg text-black placeholder:text-sm sm:placeholder:text-base"
+            className="w-full h-12 px-4 py-2 rounded-l-lg text-black placeholder:text-sm sm:placeholder:text-base hover:cursor-pointer"
             name="search"
           />
           <button
             type="submit"
-            className="h-12 px-4 py-2 rounded-r-lg text-white bg-black shadow-md"
+            className="h-12 px-4 py-2 rounded-r-lg text-white bg-black shadow-md hover:bg-gray-800"
           >
             <ChevronRightIcon className="h-4 w-4 stroke-[3px]" />
           </button>
