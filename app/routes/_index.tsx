@@ -40,7 +40,7 @@ export default function Index() {
 
       <div className="h-full absolute w-full -z-10 flex flex-col">
         <div className="bg-mobile sm:bg-desktop bg-no-repeat bg-cover bg-center w-full h-72" />
-        <div id="map" className="grow" />
+        <div id="map"></div>
         <ClientLoader
           fallback={
             <div
