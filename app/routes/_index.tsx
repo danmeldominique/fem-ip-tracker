@@ -8,8 +8,11 @@ import { getClientIPAddress } from "remix-utils/build/server/get-client-ip-addre
 
 export const meta: V2_MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "IP Tracker" },
+    { name: "description", content: "Find any location based on IP Address" },
+    { name: "author", content: "Daniel Dominique" },
+    { name: "viewport", content: "width=device-width, initial-scale=1"},
+
   ];
 };
 

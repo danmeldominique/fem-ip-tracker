@@ -50,12 +50,15 @@ Users should be able to:
 - [TailwindCSS](https://tailwindcss.com/) - For styles
 - [IP Geolocation API by IPify](https://geo.ipify.org/) - For IP Geolocation
 - [Leaflet](https://leafletjs.com/) - For map
+- [Vercel](https://vercel.com/) - Deployment platform
 
 ### What I learned
 
 I used several new technologies in this project to get some experience with them. I've had a lot of fun learning Remix and its differences from NextJS. 
 
 My main takeaway from this project was learning how to stich data together from multiple API sources. I used the IP Geolocation API by IPify to get the IP address and location data. I then used the Leaflet library to display the map. I had to use the IP Geolocation API to get the latitude and longitude of the IP address and then pass that to Leaflet to display the map.
+
+The most dificult aspect of this project was deployment. I ended up deploying my app to Vercel where I experimented with custom confiugrations like settings environment variables, custom buid and install commands and so on.
 
 This was also the first time using Bun 1.0 and loving it so far. Defnitely faster than npm and yarn.
 

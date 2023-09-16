@@ -16,7 +16,7 @@ export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref },
   {rel: "stylesheet", href: styles },
   {rel: "stylesheet", href: "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css", integrity:"sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="}] : [])
-] ;
+];
 
 export default function App() {
   console.log(cssBundleHref)
